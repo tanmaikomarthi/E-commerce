@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block content %}
+<marquee><h1>New Arrivals</h1></marquee>
+<marquee><mark><h3 style="color: black;"> Diwali Festival Sale </h3></mark></marquee>
+
+<div class="row">
+    {% for i in p %}
+    <div class="col-md-6">
+     <a href="{% url 'myapp:detail' i.id i.slug %}"><b>{{i.title}}</b></a><br>
+      <img src="{{i.img.url}}" width="300" height="300" alt=""><br>
+      ₹{{i.price}}
+      <br><br>
+      <style>
+        body{
+          background-color: rgb(235, 215, 230);
+        }
+      </style>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}
